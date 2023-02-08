@@ -1,0 +1,17 @@
+FROM debian:bullseye
+
+COPY src /app/src
+
+RUN apt-get update
+RUN apt-get install -y apache2 bash curl
+RUN chmod -R 700 /var
+
+RUN apt-get clean
+RUN rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+USER root
+EXPOSE 80
+
+ENTRYPOINT ["httpd", "-D", "FOREGROUND"]
+
