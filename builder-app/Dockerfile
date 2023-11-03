@@ -1,4 +1,4 @@
-# continue with the official PHP image
+# The official PHP image
 FROM php:7.4.2 as builder
 
 # copy the Composer PHAR from the Composer image into the PHP image
